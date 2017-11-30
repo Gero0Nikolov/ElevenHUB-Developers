@@ -20,6 +20,10 @@ $device = wp_is_mobile() ? "mobile" : "desktop";
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Playfair+Display" rel="stylesheet">
 
 	<?php wp_head(); ?>
+
+	<script type="text/javascript">
+	var ajax_url = "<?php echo admin_url('admin-ajax.php'); ?>";
+	</script>
 </head>
 
 <body <?php body_class( $device ); ?>>
@@ -28,7 +32,7 @@ $device = wp_is_mobile() ? "mobile" : "desktop";
 	<nav id="header" class="site-header">
 		<div class="left">
 			<a href="<?php echo get_site_url(); ?>" class="invisible-anchor">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/11hub-logo.png" class="logo" />
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/11hub-dev.png" class="logo" />
 			</a>
 		</div>
 		<div class="right">

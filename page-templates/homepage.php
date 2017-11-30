@@ -15,13 +15,13 @@ get_header();
 	<div class="quickies">
 		<div class="flex-container">
 			<div class="w49p quickie" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/belt.jpg);">
-				<a href="#!" class="invisible-anchor blue">
+				<a href="<?php echo get_site_url(); ?>/intro" class="invisible-anchor blue">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/laptop.png" class="icon" />
 					Join the dojo
 				</a>
 			</div>
 			<div class="w49p quickie" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/hit.jpg);">
-				<a href="#!" class="invisible-anchor red">
+				<a href="<?php echo get_site_url(); ?>/install" class="invisible-anchor red">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/fist.png" class="icon" />
 					First hit
 				</a>
@@ -29,7 +29,7 @@ get_header();
 		</div>
 		<div class="flex-container">
 			<div class="w100p quickie" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/path.jpg);">
-				<a href="#!" class="invisible-anchor green">
+				<a href="<?php echo get_site_url(); ?>/docs" class="invisible-anchor green">
 					<div class="icons">
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/learn.png" class="icon" />
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/chill.png" class="icon" />

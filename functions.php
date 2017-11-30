@@ -119,6 +119,8 @@ add_action( 'widgets_init', 'elhub_dev_widgets_init' );
 function elhub_dev_scripts() {
 	wp_enqueue_style( 'elhub_dev-style', get_stylesheet_uri() );
 
+	wp_enqueue_script( 'elhub_dev-initial', get_template_directory_uri() . '/js/initial.js', array( "jquery" ), '', true );
+
 	wp_enqueue_script( 'elhub_dev-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'elhub_dev-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -156,3 +158,63 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+//add_action( "init", "create_tables" );
+function create_tables() {
+	global $wpdb;
+	$user_emails_table = $wpdb->prefix ."user_emails";
+	if( $wpdb->get_var( "SHOW TABLES LIKE '$user_emails_table'" ) != $user_emails_table ) {
+		$charset_collate = $wpdb->get_charset_collate();
+		$sql_ = "
+		CREATE TABLE $user_emails_table (
+			id INT NOT NULL AUTO_INCREMENT,
+			first_name LONGTEXT,
+			last_name LONGTEXT,
+			email LONGTEXT,
+			PRIMARY KEY(id)
+		) $charset_collate;
+		";
+		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+		dbDelta( $sql_ );
+	}
+}
+
+add_action( 'wp_ajax_nopriv_leave_note', 'leave_note' );
+add_action( 'wp_ajax_leave_note', 'leave_note' );
+function leave_note() {
+	$first_name = isset( $_POST[ "first_name" ] ) && !empty( $_POST[ "first_name" ] ) ? sanitize_text_field( $_POST[ "first_name" ] ) : "";
+	$last_name = isset( $_POST[ "last_name" ] ) && !empty( $_POST[ "last_name" ] ) ? sanitize_text_field( $_POST[ "last_name" ] ) : "";
+	$email_ = isset( $_POST[ "email" ] ) && !empty( $_POST[ "email" ] ) ? sanitize_email( $_POST[ "email" ] ) : "";
+	$textarea_ = isset( $_POST[ "textarea" ] ) && !empty( $_POST[ "textarea" ] ) ? sanitize_textarea_field( $_POST[ "textarea" ] ) : "";
+
+	$response = true;
+
+	if ( !empty( $first_name ) && !empty( $last_name ) && !empty( $email_ ) && is_email( $email_ ) ) {
+
+	} else { $response = "Something with your details is wrong!"; }
+
+	if ( !empty( $textarea_ ) ) {
+		wp_mail( "vtm.sunrise@gmail.com", "11hub Developer Note", $textarea_ );
+	} else { $response = "Something with your message is wrong!"; }
+
+	if ( $response == true ) {
+		global $wpdb;
+		$user_emails_table = $wpdb->prefix ."user_emails";
+
+		$sql_ = "SELECT email FROM $user_emails_table WHERE email='$email_' LIMIT 1";
+		$results_ = $wpdb->get_results( $sql_, OBJECT );	
+
+		if ( empty( $results_ ) ) {
+			$wpdb->insert(
+				$user_emails_table,
+				array(
+					"first_name" => $first_name,
+					"last_name" => $last_name,
+					"email" => $email_
+				)
+			);
+		}
+	}
+
+	echo json_encode( $response );
+	die( "" );
+}
