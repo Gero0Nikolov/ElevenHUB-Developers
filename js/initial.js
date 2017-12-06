@@ -51,4 +51,19 @@ jQuery( document ).ready( function(){
 			}
 		} );
 	}
+
+	// Documentation search
+	jQuery( "#search-box" ).on( "keyup", function( e ){
+		query_ = jQuery( this ).val().trim();
+			if ( query_ != "" ) {
+			jQuery( "#default-list .list-item" ).each( function(){
+				if ( jQuery( this ).html().indexOf( query_ ) == -1 ) { jQuery( this ).addClass( "hidden" ); }
+				else { jQuery( this ).removeClass( "hidden" ); }
+			} );
+		} else {
+			jQuery( "#default-list .list-item" ).each( function(){
+				jQuery( this ).removeClass( "hidden" );
+			} );
+		}
+	} );
 } );

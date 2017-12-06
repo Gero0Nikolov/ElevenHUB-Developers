@@ -726,6 +726,9 @@ object {
   display: block; }
 
 /* SCSS Variables set */
+.hidden {
+  display: none !important; }
+
 .site-header {
   display: flex;
   position: relative;
@@ -873,6 +876,16 @@ object {
           color: #fff; }
           .site-content .quickies .quickie a.orange:hover, .site-content .quickies .quickie a.orange:active, .site-content .quickies .quickie a.orange:focus {
             background: rgba(230, 126, 34, 0.65); }
+        .site-content .quickies .quickie a.wet-asphalt {
+          background: #34495e;
+          color: #fff; }
+          .site-content .quickies .quickie a.wet-asphalt:hover, .site-content .quickies .quickie a.wet-asphalt:active, .site-content .quickies .quickie a.wet-asphalt:focus {
+            background: rgba(52, 73, 94, 0.65); }
+        .site-content .quickies .quickie a.purple {
+          background: #8e44ad;
+          color: #fff; }
+          .site-content .quickies .quickie a.purple:hover, .site-content .quickies .quickie a.purple:active, .site-content .quickies .quickie a.purple:focus {
+            background: rgba(142, 68, 173, 0.65); }
         .site-content .quickies .quickie a .icons {
           display: block;
           text-align: center;
@@ -909,6 +922,10 @@ object {
     width: 100%;
     position: relative;
     margin: 1em auto 2em; }
+    .content-page .page-header.simple .title {
+      width: 100%;
+      border: none;
+      text-align: center; }
     .content-page .page-header .title {
       display: inline-block;
       vertical-align: middle;
@@ -1045,6 +1062,93 @@ object {
       width: 100px;
       vertical-align: middle;
       margin: 0 2vw; }
+  .content-page .framework-documentation {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1em; }
+    .content-page .framework-documentation .methods {
+      display: inline-block;
+      width: 30%;
+      border-right: 1px dashed #ddd;
+      vertical-align: middle;
+      height: calc(100vh - 7em);
+      padding-right: 1em;
+      overflow-x: hidden;
+      overflow-y: auto; }
+      .content-page .framework-documentation .methods .search-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center; }
+        .content-page .framework-documentation .methods .search-container #search-box {
+          display: block;
+          width: 100%;
+          border: 1px solid #ddd;
+          border-radius: 100px;
+          font-family: "Open Sans", sans-serif;
+          font-size: 1rem;
+          font-weight: normal;
+          color: #333;
+          padding: 0.25em 0.75em;
+          outline: 0; }
+          .content-page .framework-documentation .methods .search-container #search-box:focus {
+            border-color: #3498db; }
+      .content-page .framework-documentation .methods .list {
+        display: block;
+        position: relative;
+        text-align: left; }
+        .content-page .framework-documentation .methods .list .list-item {
+          display: block;
+          width: 100%;
+          border-bottom: 1px solid #ddd;
+          text-decoration: none;
+          color: #333;
+          font-family: "Open Sans", sans-serif;
+          font-size: 1rem;
+          font-weight: normal;
+          padding: 0.35em 0;
+          outline: 0;
+          word-wrap: break-word;
+          word-break: break-word; }
+          .content-page .framework-documentation .methods .list .list-item:hover, .content-page .framework-documentation .methods .list .list-item:active, .content-page .framework-documentation .methods .list .list-item:focus {
+            color: #3498db; }
+    .content-page .framework-documentation .method-description {
+      display: inline-block;
+      width: 70%;
+      vertical-align: middle;
+      padding-left: 1em;
+      padding-bottom: 0.35em; }
+      .content-page .framework-documentation .method-description .function-title,
+      .content-page .framework-documentation .method-description .documentation-title {
+        display: block;
+        position: relative;
+        font-family: "Open Sans", sans-serif;
+        font-size: 2rem;
+        font-weight: normal;
+        color: #34495e;
+        margin: 0; }
+      .content-page .framework-documentation .method-description .section {
+        display: block;
+        position: relative;
+        width: 100%;
+        font-family: "Open Sans", sans-serif;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #333;
+        line-height: 150%; }
+        .content-page .framework-documentation .method-description .section strong {
+          color: #3498db; }
+        .content-page .framework-documentation .method-description .section .section-title {
+          display: block;
+          position: relative;
+          font-family: "Open Sans", sans-serif;
+          font-size: 1.5rem;
+          font-weight: normal;
+          color: #333;
+          margin: 1em 0 0.25em; }
 
 .mobile .site-header {
   flex-direction: column;

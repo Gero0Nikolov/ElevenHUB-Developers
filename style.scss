@@ -876,6 +876,8 @@ $silver: #bdc3c7;
 $asbestos: #7f8c8d;
 
 // CUSTOM STYLES
+.hidden { display: none !important; }
+
 .site-header {
 	display: flex;
     position: relative;
@@ -1068,6 +1070,24 @@ $asbestos: #7f8c8d;
 					&:focus { background: rgba(230, 126, 34, 0.65); }
 				}
 
+				&.wet-asphalt {
+					background: $wet_asphalt;
+					color: #fff;
+
+					&:hover,
+					&:active,
+					&:focus { background: rgba(52, 73, 94, 0.65); }
+				}
+
+				&.purple {
+					background: $wisteria;
+					color: #fff;
+
+					&:hover,
+					&:active,
+					&:focus { background: rgba(142, 68, 173, 0.65); }
+				}
+
 				.icons {
 					display: block;
 					text-align: center;
@@ -1117,6 +1137,14 @@ $asbestos: #7f8c8d;
 		width: 100%;
 		position: relative;
 		margin: 1em auto 2em;
+
+		&.simple {
+			.title {
+				width: 100%;
+				border: none;
+				text-align: center;
+			}
+		}
 
 		.title {
 			display: inline-block;
@@ -1295,6 +1323,117 @@ $asbestos: #7f8c8d;
 		    width: 100px;
 		    vertical-align: middle;
 		    margin: 0 2vw;
+		}
+	}
+
+	.framework-documentation {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		justify-content: center;
+		width: 100%;
+		margin-top: 1em;
+
+		.methods {
+			display: inline-block;
+			width: 30%;
+			border-right: 1px dashed #ddd;
+			vertical-align: middle;
+			height: calc(100vh - 7em);
+			padding-right: 1em;
+			overflow-x: hidden;
+			overflow-y: auto;
+
+			.search-container {
+				display: flex;
+			    flex-direction: row;
+			    align-items: center;
+			    justify-content: center;
+
+				#search-box {
+					display: block;
+					width: 100%;
+					border: 1px solid #ddd;
+					border-radius: 100px;
+					font-family: "Open Sans", sans-serif;
+					font-size: 1rem;
+					font-weight: normal;
+					color: #333;
+					padding: 0.25em 0.75em;
+					outline: 0;
+
+					&:focus { border-color: $peter_river; }
+				}
+			}
+
+			.list {
+				display: block;
+				position: relative;
+				text-align: left;
+
+				.list-item {
+					display: block;
+					width: 100%;
+					border-bottom: 1px solid #ddd;
+					text-decoration: none;
+					color: #333;
+					font-family: "Open Sans", sans-serif;
+					font-size: 1rem;
+					font-weight: normal;
+					padding: 0.35em 0;
+					outline: 0;
+					word-wrap: break-word;
+					word-break: break-word;
+
+					&:hover,
+					&:active,
+					&:focus { color: $peter_river; }
+				}
+			}
+		}
+
+		.method-description {
+			display: inline-block;
+		    width: 70%;
+		    vertical-align: middle;
+			padding-left: 1em;
+			padding-bottom: 0.35em;
+
+			.function-title,
+			.documentation-title {
+				display: block;
+				position: relative;
+				font-family: "Open Sans", sans-serif;
+				font-size: 2rem;
+				font-weight: normal;
+				color: $wet_asphalt;
+				margin: 0;
+			}
+
+			.section {
+				display: block;
+			    position: relative;
+			    width: 100%;
+			    font-family: "Open Sans", sans-serif;
+			    font-size: 1rem;
+			    font-weight: normal;
+			    color: #333;
+			    line-height: 150%;
+
+				strong {
+					color: $peter_river;
+				}
+
+				.section-title {
+					display: block;
+				    position: relative;
+				    font-family: "Open Sans", sans-serif;
+				    font-size: 1.5rem;
+				    font-weight: normal;
+				    color: #333;
+				    margin: 1em 0 0.25em;
+				}
+			}
 		}
 	}
 }
