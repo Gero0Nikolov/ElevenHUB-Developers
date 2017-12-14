@@ -141,6 +141,7 @@ sub {
 
 img {
 	border: 0;
+	max-width: 128px;
 }
 
 svg:not(:root) {
@@ -1343,6 +1344,7 @@ $asbestos: #7f8c8d;
 			padding-right: 1em;
 			overflow-x: hidden;
 			overflow-y: auto;
+			-webkit-overflow-scrolling: touch;
 
 			.search-container {
 				display: flex;
@@ -1487,7 +1489,7 @@ $asbestos: #7f8c8d;
 		.quickies {
 			.quickie {
 				width: 100% !important;
-				height: 50vw;
+				height: 50vw !important;
 				text-align: center;
 			}
 		}
@@ -1527,6 +1529,29 @@ $asbestos: #7f8c8d;
 		.text {
 			width: 100%;
 			padding: 0 1em;
+			word-wrap: break-word;
+    		word-break: break-word;
+		}
+	}
+
+	.framework-documentation {
+		flex-direction: column;
+
+		.methods {
+			.list {
+				display: none;
+			    height: 50vh;
+			}
+		}
+
+		.methods,
+		.method-description {
+			width: 100%;
+			padding: 0 1em;
+			height: auto;
+			border: none;
+			word-wrap: break-word;
+    		word-break: break-word;
 		}
 	}
 }

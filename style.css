@@ -123,7 +123,8 @@ sub {
   bottom: -0.25em; }
 
 img {
-  border: 0; }
+  border: 0;
+  max-width: 128px; }
 
 svg:not(:root) {
   overflow: hidden; }
@@ -1077,7 +1078,8 @@ object {
       height: calc(100vh - 7em);
       padding-right: 1em;
       overflow-x: hidden;
-      overflow-y: auto; }
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch; }
       .content-page .framework-documentation .methods .search-container {
         display: flex;
         flex-direction: row;
@@ -1179,7 +1181,7 @@ object {
     justify-content: center; }
   .mobile .site-content .quickies .quickie {
     width: 100% !important;
-    height: 50vw;
+    height: 50vw !important;
     text-align: center; }
 .mobile .content-page .page-header {
   flex-direction: column-reverse; }
@@ -1201,6 +1203,21 @@ object {
     margin: 0 auto; }
   .mobile .paragraph .text {
     width: 100%;
-    padding: 0 1em; }
+    padding: 0 1em;
+    word-wrap: break-word;
+    word-break: break-word; }
+.mobile .framework-documentation {
+  flex-direction: column; }
+  .mobile .framework-documentation .methods .list {
+    display: none;
+    height: 50vh; }
+  .mobile .framework-documentation .methods,
+  .mobile .framework-documentation .method-description {
+    width: 100%;
+    padding: 0 1em;
+    height: auto;
+    border: none;
+    word-wrap: break-word;
+    word-break: break-word; }
 
 /*# sourceMappingURL=style.css.map */

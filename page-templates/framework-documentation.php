@@ -69,11 +69,11 @@ if ( $page_->post_name == "brother-php" ) {
 					<?php echo $method_page->post_content; ?>
 				</div>
 				<div class="function-parameteres section">
-					<h1 class="section-title">Function parameters:</h1>
+					<h1 class="section-title">Method parameters:</h1>
 					<?php echo $function_parameters; ?>
 				</div>
 				<div class="function-positioned section">
-					<h1 class="section-title">Function positioned at:</h1>
+					<h1 class="section-title">Method positioned at:</h1>
 					<?php echo strtoupper( str_replace( "_", " ", $function_positioned ) ); ?>
 				</div>
 

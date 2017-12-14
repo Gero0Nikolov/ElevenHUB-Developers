@@ -53,11 +53,23 @@ jQuery( document ).ready( function(){
 	}
 
 	// Documentation search
+	jQuery( "#search-box" ).on( "focus", function(){
+		if ( jQuery( "body" ).hasClass( "mobile" ) ) {
+			jQuery( "#default-list" ).show();
+		}
+	} );
+
+	jQuery( "#method-description" ).on( "click", function( e ){
+		if ( jQuery( "body" ).hasClass( "mobile" ) ) {
+			jQuery( "#default-list" ).hide();
+		}
+	} );
+
 	jQuery( "#search-box" ).on( "keyup", function( e ){
-		query_ = jQuery( this ).val().trim();
+		query_ = jQuery( this ).val().trim().toLowerCase();
 			if ( query_ != "" ) {
 			jQuery( "#default-list .list-item" ).each( function(){
-				if ( jQuery( this ).html().indexOf( query_ ) == -1 ) { jQuery( this ).addClass( "hidden" ); }
+				if ( jQuery( this ).html().toLowerCase().indexOf( query_ ) == -1 ) { jQuery( this ).addClass( "hidden" ); }
 				else { jQuery( this ).removeClass( "hidden" ); }
 			} );
 		} else {
